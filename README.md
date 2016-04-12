@@ -22,8 +22,8 @@ that are required to build and run this demo:
 
 Clone a repo with all submodules:
 ```
-git clone <link>
-cd <repo_name>
+git clone https://github.com/forGGe/theCore-blinky.git
+cd theCore-blinky
 git submodule update --init --recursive
 ```
 
