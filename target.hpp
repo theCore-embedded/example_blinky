@@ -26,25 +26,25 @@
 
 static void target_init_gpio()
 {
-	// Initialization structure
-	GPIO_InitTypeDef init_struct;
+    // Initialization structure
+    GPIO_InitTypeDef init_struct;
 
-	// Put structure at required state
-	GPIO_StructInit(&init_struct);
+    // Put structure at required state
+    GPIO_StructInit(&init_struct);
 
-	// LED GPIO configuration
+    // LED GPIO configuration
 
-	init_struct.GPIO_Mode   = GPIO_Mode_OUT;
-	init_struct.GPIO_OType  = GPIO_OType_PP;
-	init_struct.GPIO_PuPd   = GPIO_PuPd_NOPULL;
-	init_struct.GPIO_Pin    = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+    init_struct.GPIO_Mode   = GPIO_Mode_OUT;
+    init_struct.GPIO_OType  = GPIO_OType_PP;
+    init_struct.GPIO_PuPd   = GPIO_PuPd_NOPULL;
+    init_struct.GPIO_Pin    = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
 
-	// Init Port D clocks
+    // Init Port D clocks
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
     // Init Port D itself
-	GPIO_Init(GPIOD, &init_struct);
+    GPIO_Init(GPIOD, &init_struct);
 
-	// All GPIOs are configured. We are ready to use it.
+    // All GPIOs are configured. We are ready to use it.
 }
 
 // Define LED types

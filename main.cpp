@@ -21,23 +21,23 @@ static void dummy_delay()
 // Obviously, main routine
 int main(void)
 {
-	while (1) {
-		// Toggle each led one by one
+    while (1) {
+        // Toggle each led one by one
 
-		led_blue::toggle();
-		dummy_delay();
-		
-		led_green::toggle();
-		dummy_delay();
-		
-		led_orange::toggle();
-		dummy_delay();
-		
-		led_red::toggle();
-		dummy_delay();
-	}
+        led_blue::toggle();
+        dummy_delay();
 
-	return 0;
+        led_green::toggle();
+        dummy_delay();
+
+        led_orange::toggle();
+        dummy_delay();
+
+        led_red::toggle();
+        dummy_delay();
+    }
+
+    return 0;
 }
 
 
