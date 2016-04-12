@@ -52,7 +52,7 @@ If your build succeed, it is time to start a demo. Connect your stm32 Discovery
 and launch a debugger:
 
 ```
-sudo openocd ../core/scripts/stm32f4discovery.cfg
+sudo openocd -f ../core/scripts/stm32f4discovery.cfg
 ```
 
 You can also follow [the guide how to run openocd **without root privileges**](http://shukra.cedt.iisc.ernet.in/edwiki/EmSys:Accessing_Devices_without_Sudo).
