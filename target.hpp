@@ -49,10 +49,10 @@ static void target_init_gpio()
 
 // Define LED types
 
-using led_red 		= GPIO< pin::port::port_d, pin::number::pin_14 >;
-using led_green 	= GPIO< pin::port::port_d, pin::number::pin_12 >;
-using led_blue  	= GPIO< pin::port::port_d, pin::number::pin_15 >;
-using led_orange 	= GPIO< pin::port::port_d, pin::number::pin_13 >;
+using led_red 		= ecl::gpio< ecl::gpio_port::d, ecl::gpio_num::pin14 >;
+using led_green 	= ecl::gpio< ecl::gpio_port::d, ecl::gpio_num::pin12 >;
+using led_blue  	= ecl::gpio< ecl::gpio_port::d, ecl::gpio_num::pin15 >;
+using led_orange 	= ecl::gpio< ecl::gpio_port::d, ecl::gpio_num::pin13 >;
 
 
 #endif

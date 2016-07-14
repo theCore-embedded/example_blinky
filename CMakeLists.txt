@@ -9,7 +9,7 @@ project(blinky_demo)
 # Our demo sources.
 add_executable(blinky main.cpp)
 
-# Demo depends on the core.
+# Demo depends on theCore.
 target_link_libraries(blinky the_core)
 
 # Set of configuration variables.
@@ -23,14 +23,8 @@ set(CONFIG_PLATFORM_HSE_VAL 8000000)
 set(CONFIG_EXEC_STRIP true)
 
 # All configuration variables should be defined _before_ call
-# to register_project()
+# to add_subdirectory()
 
-# Notify The Core about our project.
-# register_project() takes two arguments:
-# First is the project name, second is the path to object file,
-# produced by the project.
-register_project(${PROJECT_NAME} ${CMAKE_CURRENT_BINARY_DIR}/blinky)
-
-# Pay attention that there is no add_subdirectory(core) statement.
-# register_project() do this internally so no need to do it explicitly.
+# Add theCore to the build.
+add_subdirectory(core)
 
