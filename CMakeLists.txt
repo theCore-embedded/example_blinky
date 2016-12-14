@@ -14,7 +14,7 @@ target_link_libraries(blinky the_core)
 
 # Set of configuration variables.
 # Pick the platform.
-set(CONFIG_PLATFORM stm32f4xx)
+set(CONFIG_PLATFORM stm32)
 # STM32 discovery is running with SMT32F407VG processor.
 set(CONFIG_PLATFORM_DEVICE STM32F40_41xxx)
 # External oscillator has 8 MHz out clock.
@@ -27,4 +27,3 @@ set(CONFIG_EXEC_STRIP true)
 
 # Add theCore to the build.
 add_subdirectory(core)
-

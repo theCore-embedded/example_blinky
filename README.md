@@ -1,5 +1,4 @@
 # The Core: Embedded C++ framework blinky example
-****
 
 This example runs on Discovery kit with STM32F407VG MCU and
 demonstrates how easy [The Core framework](https://github.com/forGGe/theCore) is in use.
