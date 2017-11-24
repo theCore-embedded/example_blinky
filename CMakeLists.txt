@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.4)
 
-# Convenient way to interact with The Core build system.
-include(core/build_api.cmake)
-
 # Objvious.
 project(blinky_demo)
+
+# Convenient way to interact with The Core build system.
+# Must be included after project name.
+include(core/build_api.cmake)
 
 # Our demo sources.
 add_executable(blinky main.cpp)

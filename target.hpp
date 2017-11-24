@@ -15,6 +15,7 @@
 #ifndef BLINKY_DEMO_TARGET_HPP_
 #define BLINKY_DEMO_TARGET_HPP_
 
+#include <stm32f4xx.h>
 #include <stm32f4xx_gpio.h>
 #include <stm32f4xx_rcc.h>
 
