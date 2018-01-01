@@ -1,0 +1,21 @@
+language: cpp
+sudo: required
+dist: trusty
+branches:
+    only:
+        - develop
+        - /^develop-.*$/
+        - master
+        - release
+
+install:
+    - travis_retry curl https://nixos.org/nix/install -o nix_install.sh
+    - sh nix_install.sh
+    - . $HOME/.nix-profile/etc/profile.d/nix.sh
+    - travis_retry nix-shell ./core --pure --run true
+
+script:
+  - mkdir build
+  - cd build
+  - nix-shell ../core --pure --run "cmake -DCMAKE_TOOLCHAIN_FILE=../core/toolchains/arm-cm4-gnu.cmake ../"
+  - nix-shell ../core --pure --run make
