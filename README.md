@@ -47,25 +47,37 @@ make
 ```
 
 ## Running
+
 If your build succeed, it is time to start a demo. Connect your stm32 Discovery
-and launch a debugger:
+and launch a debugger.
+
+For old Discovery boards with ST-LINK/V2, use `stm32f4discovery.cfg` as OpenOCD
+script:
 
 ```
-sudo openocd -f ../core/scripts/stm32f4discovery.cfg
+sudo openocd -f board/stm32f4discovery.cfg
+```
+
+For newer boards with ST-LINK/V2-A (labeled as STM32F407G-DISC1), you can launch:
+
+```
+sudo openocd -f board/stm32f429disc1.cfg
 ```
 
 You can also follow [the guide how to run openocd **without root privileges**](http://shukra.cedt.iisc.ernet.in/edwiki/EmSys:Accessing_Devices_without_Sudo).
 I strongly recommend to do that and forget about `sudo` along with `openocd`
-to the rest of your life.  
+to the rest of your life.
 
 While openocd is running it should be controlled via gdb. You will likely need
-a second terminal since the first one is occupied by openocd.  
+a second terminal since the first one is occupied by openocd.
 Feed a path to a built binary to gdb:
+
 ```
 arm-none-eabi-gdb <path_to_your_repo>/build/blinky
-```  
+```
 
 The output should looks like following:
+
 ```
 GNU gdb (GDB) 7.11
 Copyright (C) 2016 Free Software Foundation, Inc.
@@ -86,6 +98,7 @@ Reading symbols from blinky...done.
 ```
 
 It's time to load the blinky image:
+
 ```
 (gdb) target remote :3333
 (gdb) monitor reset halt
@@ -93,6 +106,7 @@ It's time to load the blinky image:
 ```
 
 Start the image:
+
 ```
 (gdb) continue
 ```
