@@ -1,6 +1,9 @@
 Blinky example for theCore embedded C++ framework
 =================================================
 
+.. image:: https://travis-ci.org/theCore-embedded/example_blinky.svg?branch=master
+    :target: https://travis-ci.org/theCore-embedded/example_blinky
+
 This example flashes available leds on supported boards, one by one.
 
 Detailed description
@@ -30,7 +33,7 @@ Quick start
 
 #. Download this example::
 
-        tcore init --remote https://github.com/theCore-embedded/theCore-blinky
+        tcore init --remote https://github.com/theCore-embedded/example_blinky
 
 #. Compile:
 

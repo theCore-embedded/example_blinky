@@ -1,6 +1,8 @@
 language: cpp
 sudo: required
 dist: trusty
+python:
+  - "3.6"
 branches:
     only:
         - develop
@@ -9,10 +11,10 @@ branches:
         - release
 
 install:
-    - travis_retry curl https://nixos.org/nix/install -o nix_install.sh
-    - sh nix_install.sh
-    - . $HOME/.nix-profile/etc/profile.d/nix.sh
-    - travis_retry nix-shell ./core --pure --run true
+    - pip3 install tcore
+    - tcore bootstrap
+    - tcore compile --target stm32f4_disc
+    - tcore compile --target tiva_tm4c_launchpad
 
 script:
   - mkdir build
