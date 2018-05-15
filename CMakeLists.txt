@@ -1,30 +1,26 @@
-cmake_minimum_required(VERSION 3.4)
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# Objvious.
-project(blinky_demo)
+cmake_minimum_required(VERSION 3.2)
 
-# Convenient way to interact with The Core build system.
-# Must be included after project name.
-include(core/build_api.cmake)
+# theCore framework directory must be set before build
+message("Using theCore directory: ${CORE_DIR}")
+
+# Required.
+include(${CORE_DIR}/build_api.cmake)
+
+# Obvious.
+project(blinky)
 
 # Our demo sources.
 add_executable(blinky main.cpp)
 
-# Demo depends on theCore.
+# Some dependencies
 target_link_libraries(blinky the_core)
 
-# Set of configuration variables.
-# Pick the platform.
-set(CONFIG_PLATFORM stm32)
-# STM32 discovery is running with SMT32F407VG processor.
-set(CONFIG_PLATFORM_DEVICE STM32F40_41xxx)
-# External oscillator has 8 MHz out clock.
-set(CONFIG_PLATFORM_HSE_VAL 8000000)
-# Strip executable to binary.
-set(CONFIG_EXEC_STRIP true)
+# Include theCore into the build process
+add_subdirectory(${CORE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/core)
 
-# All configuration variables should be defined _before_ call
-# to add_subdirectory()
-
-# Add theCore to the build.
-add_subdirectory(core)
+# Produce complete binary, suitable for flashing to the target
+strip_executable(blinky)

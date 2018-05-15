@@ -1,0 +1,53 @@
+{
+    "platform": {
+        "name": "stm32",
+        "device": "STM32F407VG",
+        "console": "USART3",
+        "bypass_console": "USART3",
+        "clock": {
+            "source": "HSE",
+            "speed": 8000000
+        },
+        "uart": [
+            {
+                "id": "USART3",
+                "baud": 115200,
+                "comment": "Bypass and console UART"
+            }
+        ],
+        "pinmux": [
+            {
+                "ids": [ "PD12", "PD13", "PD14", "PD15" ],
+                "mode": "OUT",
+                "comment": "STM32F4 Discovery On-board LEDs"
+            },
+            {
+                "ids": [
+                    "PD8",
+                    "PD9"
+                ],
+                "mode": "AF",
+                "function": "USART3",
+                "comment": "Console UART, PD8 - TX, PD9 - RX"
+            }
+        ],
+        "gpio_alias": [
+            {
+                "id": "PD12",
+                "alias": "led_green"
+            },
+            {
+                "id": "PD13",
+                "alias": "led_orange"
+            },
+            {
+                "id": "PD14",
+                "alias": "led_red"
+            },
+            {
+                "id": "PD15",
+                "alias": "led_blue"
+            }
+        ]
+    }
+}
