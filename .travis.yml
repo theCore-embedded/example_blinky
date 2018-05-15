@@ -1,8 +1,7 @@
 language: cpp
 sudo: required
 dist: trusty
-python:
-  - "3.6"
+
 branches:
     only:
         - develop
@@ -10,14 +9,14 @@ branches:
         - master
         - release
 
+before_install:
+    - sudo apt-get update
+    - sudo apt-get install python3 python3-pip
+
 install:
-    - pip3 install tcore
+    - sudo pip3 install tcore
     - tcore bootstrap
-    - tcore compile --target stm32f4_disc
-    - tcore compile --target tiva_tm4c_launchpad
 
 script:
-  - mkdir build
-  - cd build
-  - nix-shell ../core --pure --run "cmake -DCMAKE_TOOLCHAIN_FILE=../core/toolchains/arm-cm4-gnu.cmake ../"
-  - nix-shell ../core --pure --run make
+    - tcore compile --target stm32f4_disc
+    - tcore compile --target tiva_tm4c_launchpad
