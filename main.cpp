@@ -23,7 +23,7 @@ extern "C" void board_init()
 }
 
 //! Main routine.
-int main(void)
+int main()
 {
     while (1) {
         // Toggle each led one by one

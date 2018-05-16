@@ -42,7 +42,6 @@ Quick start
 
    * For STM32 Discovery board::
 
-        cd example_blinky
         tcore compile --target stm32f4_disc
     
    * For Tiva TM4C LaunchPad::
