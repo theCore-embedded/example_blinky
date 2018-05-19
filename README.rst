@@ -54,15 +54,15 @@ Quick start
 
    * For TivaC launchpad::
 
-        tcore --sudo flash
+        tcore flash --sudo
 
    * For old STM32F407G-DISC boards, with STLINK/V2::
 
-        tcore --sudo flash
+        tcore flash --sudo
 
    * For new STM32F407G-DISC1 boards, with STLINK/V2.1::
 
-        tcore --sudo flash --debugger-config stlink-v2.1
+        tcore flash --sudo --debugger-config stlink-v2.1
 
 #. Observe LEDs blinking on your board.
 
