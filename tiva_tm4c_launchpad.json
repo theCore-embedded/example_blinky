@@ -1,50 +1,62 @@
 {
-    "platform": {
-        "name": "tm4c",
-        "device": "TM4C123GH6PM",
-        "console": "UART0",
-        "uart": [
-            {
-                "id": "UART0",
-                "comment": "UART-over-USB console output"
+    "menu-platform": {
+        "config-name": "TM4C",
+        "menu-tm4c": {
+            "config-device": "TM4C123GH6PM",
+            "config-console": "UART0",
+            "menu-timer": {
+                "config-source": "systick",
+                "config-freq": "100",
+                "config-owner": "user"
+            },
+            "menu-uart": {
+                "table-uart": [
+                    "UART0"
+                ],
+                "menu-UART0": {
+                    "config-baud": 115200
+                }
+            },
+            "menu-pinconfig": {
+                "table-pins": [
+                    "PA0",
+                    "PA1",
+                    "PF1",
+                    "PF2",
+                    "PF3"
+                ],
+                "menu-PA0": {
+                    "config-direction": "af",
+                    "config-type": "standard",
+                    "config-strength": "6mA",
+                    "config-afsel": "U0Rx"
+                },
+                "menu-PA1": {
+                    "config-direction": "af",
+                    "config-type": "standard",
+                    "config-strength": "6mA",
+                    "config-afsel": "U0Tx"
+                },
+                "menu-PF1": {
+                    "config-direction": "output",
+                    "config-type": "standard",
+                    "config-strength": "6mA",
+                    "config-gpio-alias": "led_red,led_orange",
+                    "config-comment": "There is no Orange LED in TivaC. Thus Red LED is \"mutiplexed\" with Orange one."
+                },
+                "menu-PF2": {
+                    "config-direction": "output",
+                    "config-type": "standard",
+                    "config-strength": "6mA",
+                    "config-gpio-alias": "led_blue"
+                },
+                "menu-PF3": {
+                    "config-direction": "output",
+                    "config-type": "standard",
+                    "config-strength": "6mA",
+                    "config-gpio-alias": "led_green"
+                }
             }
-        ],
-        "pinmux": [
-            {
-                "ids": [ "PF1", "PF2", "PF3" ],
-                "dir": "out",
-                "pin_type": "std",
-                "strength": "2mA",
-                "comment": "LED pins"
-            },
-            {
-                "ids": [ "PA0", "PA1" ],
-                "dir": "hw",
-                "hws": { "PA0": "UART0_RX", "PA1": "UART0_TX" },
-                "comment": "UART0 console pins"
-            }
-        ],
-        "gpio_alias": [
-            {
-                "id": "PF1",
-                "alias": "led_red",
-                "comment": "Red LED"
-            },
-            {
-                "id": "PF2",
-                "alias": "led_blue",
-                "comment": "Blue LED"
-            },
-            {
-                "id": "PF3",
-                "alias": "led_green",
-                "comment": "Green LED"
-            },
-            {
-                "id": "PF1",
-                "alias": "led_orange",
-                "comment": "Non-existing orange LED (used red instead)"
-            }
-        ]
+        }
     }
 }

@@ -1,53 +1,82 @@
 {
-    "platform": {
-        "name": "stm32",
-        "device": "STM32F407VG",
-        "console": "USART3",
-        "bypass_console": "USART3",
-        "clock": {
-            "source": "HSE",
-            "speed": 8000000
-        },
-        "uart": [
-            {
-                "id": "USART3",
-                "baud": 115200,
-                "comment": "Bypass and console UART"
-            }
-        ],
-        "pinmux": [
-            {
-                "ids": [ "PD12", "PD13", "PD14", "PD15" ],
-                "mode": "OUT",
-                "comment": "STM32F4 Discovery On-board LEDs"
+    "menu-platform": {
+        "config-name": "STM32",
+        "menu-stm32": {
+            "config-device": "STM32F407VG",
+            "config-console": "USART3",
+            "menu-clock": {
+                "config-source": "HSE",
+                "config-speed": "8000000"
             },
-            {
-                "ids": [
+            "menu-timer": {
+                "config-source": "systick",
+                "config-freq": "50",
+                "config-owner": "user"
+            },
+            "menu-uart": {
+                "table-uart": [
+                    "USART3"
+                ],
+                "menu-USART3": {
+                    "config-baud": 115200
+                }
+            },
+            "menu-pins": {
+                "table-pins": [
+                    "PD12",
+                    "PD13",
+                    "PD14",
+                    "PD15",
                     "PD8",
                     "PD9"
                 ],
-                "mode": "AF",
-                "function": "USART3",
-                "comment": "Console UART, PD8 - TX, PD9 - RX"
+                "menu-PD12": {
+                    "config-mode": "output",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-speed": 25,
+                    "config-comment": "Green LED",
+                    "config-gpio-alias": "led_green"
+                },
+                "menu-PD13": {
+                    "config-mode": "output",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-speed": 25,
+                    "config-comment": "Orange LED",
+                    "config-gpio-alias": "led_orange"
+                },
+                "menu-PD14": {
+                    "config-mode": "output",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-speed": 25,
+                    "config-comment": "Red LED",
+                    "config-gpio-alias": "led_red"
+                },
+                "menu-PD15": {
+                    "config-mode": "output",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-speed": 25,
+                    "config-comment": "Blue LED",
+                    "config-gpio-alias": "led_blue"
+                },
+                "menu-PD8": {
+                    "config-mode": "af",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-speed": 25,
+                    "config-afsel": "AF7: USART3_TX"
+                },
+                "menu-PD9": {
+                    "config-mode": "af",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-speed": 25,
+                    "config-afsel": "AF7: USART3_RX"
+                }
             }
-        ],
-        "gpio_alias": [
-            {
-                "id": "PD12",
-                "alias": "led_green"
-            },
-            {
-                "id": "PD13",
-                "alias": "led_orange"
-            },
-            {
-                "id": "PD14",
-                "alias": "led_red"
-            },
-            {
-                "id": "PD15",
-                "alias": "led_blue"
-            }
-        ]
+        }
     }
 }
